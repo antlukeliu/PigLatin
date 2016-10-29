@@ -62,13 +62,13 @@ public class PigLatin {
 		String response = "";
 		boolean cont = true;
 		System.out.print("\nTranslate again? (y/n): ");
-		response = sc.next();
+		response = sc.nextLine();
 		
 		while(cont){
 			
 			if (response.toLowerCase().charAt(0) != 'y' && response.toLowerCase().charAt(0) != 'n'){
 				System.out.print("Translate again? Enter only y or n: ");
-				response = sc.next();}
+				response = sc.nextLine();}
 			else{
 				break;
 			}
