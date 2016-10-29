@@ -68,6 +68,10 @@ public class PigLatin {
 		boolean cont = true;
 		System.out.print("\nTranslate again? (y/n): ");
 		response = sc.nextLine();
+<<<<<<< HEAD
+=======
+		
+>>>>>>> origin/master
 		while(cont){
 			
 			if (response.toLowerCase().charAt(0) != 'y' && response.toLowerCase().charAt(0) != 'n'){
