@@ -100,13 +100,10 @@ public class PigLatin {
 	public static String translating(String word, int num){
 		String specialChar = "@#$%^&"; 
 		
-		loop:
 		for (int i = 0; i<word.length(); i++){
 			for(int j = 0; j<specialChar.length(); j++){
 				if (specialChar.charAt(j) == word.charAt(i)){
 					return word;
-				}else if((i + 1) == word.length()){
-					break loop;
 				}
 			}
 		}
