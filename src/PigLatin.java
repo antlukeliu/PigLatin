@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
-
 public class PigLatin {
-	
-	//So i need to loop so that check if 
+	 
 	 public static void main(String[] args) {
 		
 		boolean cont = true;	
@@ -19,8 +17,8 @@ public class PigLatin {
 		   }
 		while(cont);
 	 }
-	//methods
-	 
+
+	//Checks if user enter text and creates an array from the input 
 	 public static String[] checkInput(){
 		 Scanner sc = new Scanner(System.in);
 		 String[] myArray;
@@ -38,6 +36,7 @@ public class PigLatin {
 		 return myArray;
 	 }
 	 
+	 //Determines index of where the first vowel is located in a string
 	 public static int findingIndex(String word){
 		String vowels = "aeiou";
 		int i;
@@ -52,8 +51,9 @@ public class PigLatin {
 			}	
 		}
 		return i;
-	} //bracket for findingIndex
+	} 
 	
+	//Checks if Y or N is enter
 	public static char checkingForYesOrNo(){
 		Scanner sc = new Scanner(System.in);
 		String response = "";
@@ -72,6 +72,7 @@ public class PigLatin {
 		return response.toLowerCase().charAt(0);
 	}
 	
+	//continues or breaks the do-while loop
 	public static boolean rollingAgain(char response){
 		if (response == 'y'){
 			return true;
@@ -79,11 +80,15 @@ public class PigLatin {
 			return false;
 		}
 	}
+	
+	//Prints message if user does not continue
 	public static void exitting(boolean cont){
 		if (cont == false){
 			System.out.println(	"Goodbye!");
 		}
 	}
+	
+	//Translates a word and returns the new word
 	public static String translating(String word, int num){
 		if (word.matches(".*\\d+.*")){
 			return word;
@@ -98,6 +103,8 @@ public class PigLatin {
 					+ word.substring(0,num) + "ay");
 		} 
 	}
+	
+	//Builds a string so I can print 
 	public static StringBuilder translating(String[] myArray){
 		
 		StringBuilder strBuilder = new StringBuilder();
@@ -109,4 +116,4 @@ public class PigLatin {
 		}
 	return strBuilder;
 	}
-}//bracket for entire class
+}
