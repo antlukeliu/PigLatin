@@ -20,6 +20,7 @@ public class PigLatin {
 
 	//Checks if user enter text and creates an array from the input 
 	 public static String[] checkInput(){
+		 
 		 Scanner sc = new Scanner(System.in);
 		 String[] myArray;
 		 
@@ -38,6 +39,7 @@ public class PigLatin {
 	 
 	 //Determines index of where the first vowel is located in a string
 	 public static int findingIndex(String word){
+		
 		String vowels = "aeiou";
 		int i;
 		int j;
@@ -55,11 +57,13 @@ public class PigLatin {
 	
 	//Checks if Y or N is enter
 	public static char checkingForYesOrNo(){
+		
 		Scanner sc = new Scanner(System.in);
 		String response = "";
 		boolean cont = true;
 		System.out.print("\nTranslate again? (y/n): ");
 		response = sc.next();
+		
 		while(cont){
 			
 			if (response.toLowerCase().charAt(0) != 'y' && response.toLowerCase().charAt(0) != 'n'){
@@ -74,6 +78,7 @@ public class PigLatin {
 	
 	//continues or breaks the do-while loop
 	public static boolean rollingAgain(char response){
+		
 		if (response == 'y'){
 			return true;
 		} else{
@@ -83,6 +88,7 @@ public class PigLatin {
 	
 	//Prints message if user does not continue
 	public static void exitting(boolean cont){
+		
 		if (cont == false){
 			System.out.println(	"Goodbye!");
 		}
@@ -90,6 +96,7 @@ public class PigLatin {
 	
 	//Translates a word and returns the new word
 	public static String translating(String word, int num){
+		
 		if (word.matches(".*\\d+.*")){
 			return word;
 		}else if(word.matches(".*@.*")){
