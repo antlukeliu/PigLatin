@@ -1,9 +1,15 @@
+/* 
+ Welcome to the Pig Latin Translator
+ This program will find the first volume in your word and move all
+ of the consonants that appear before the first vowel to the end of
+ the word, then add "ay" to the end of the word
+ If the word starts with a vowel, it will add "way" to the end
+  */
+
 import java.util.Scanner;
 
-
 public class PigLatin {
-	
-	//So i need to loop so that check if 
+	 
 	 public static void main(String[] args) {
 		
 		boolean cont = true;	
@@ -14,15 +20,14 @@ public class PigLatin {
 			StringBuilder var = translating(myArray);
 			System.out.println(var);
 			char response = checkingForYesOrNo();
-			cont = rollingAgain(response);
+			cont = translatingAgain(response);
 			exitting(cont);
 		   }
 		while(cont);
 	 }
-	//methods
-	 
+	
+	//Checks to make sure text is enter 
 	 public static String[] checkInput(){
-		 
 		 Scanner sc = new Scanner(System.in);
 		 String[] myArray;
 		 
@@ -39,8 +44,8 @@ public class PigLatin {
 		 return myArray;
 	 }
 	 
+	 //Method to find the index of where the first volume is located
 	 public static int findingIndex(String word){
-		
 		String vowels = "aeiou";
 		int i;
 		int j;
@@ -54,21 +59,20 @@ public class PigLatin {
 			}	
 		}
 		return i;
-	} //bracket for findingIndex
+	}
 	
+	//Method to check if y or no is valid 
 	public static char checkingForYesOrNo(){
-		
 		Scanner sc = new Scanner(System.in);
 		String response = "";
 		boolean cont = true;
 		System.out.print("\nTranslate again? (y/n): ");
-		response = sc.next();
-		
+		response = sc.nextLine();
 		while(cont){
 			
 			if (response.toLowerCase().charAt(0) != 'y' && response.toLowerCase().charAt(0) != 'n'){
 				System.out.print("Translate again? Enter only y or n: ");
-				response = sc.next();}
+				response = sc.nextLine();}
 			else{
 				break;
 			}
@@ -76,25 +80,34 @@ public class PigLatin {
 		return response.toLowerCase().charAt(0);
 	}
 	
-	public static boolean rollingAgain(char response){
-		
+	//Method to check if we y was enter to continue the loop
+	public static boolean translatingAgain(char response){
 		if (response == 'y'){
 			return true;
 		} else{
 			return false;
 		}
 	}
+	
+	//Closing message
 	public static void exitting(boolean cont){
-		
 		if (cont == false){
 			System.out.println(	"\nHave an awesome day!");
 		}
 	}
+	
+	//Method to translate word and return in string form 
 	public static String translating(String word, int num){
+		String specialChar = "@#$%^&*"; 
 		
+		for (int i = 0; i<word.length(); i++){
+			for(int j = 0; j<specialChar.length(); j++){
+				if(word.matches(".*"+specialChar.charAt(j)+".*")){
+					return word;
+				}
+			}
+		}
 		if (word.matches(".*\\d+.*")){
-			return word;
-		}else if(word.matches(".*@.*")){
 			return word;
 		}
 		else if (num == 0){
@@ -105,6 +118,8 @@ public class PigLatin {
 					+ word.substring(0,num) + "ay");
 		} 
 	}
+	
+	//Appending each piece in the array into a complete String
 	public static StringBuilder translating(String[] myArray){
 		
 		StringBuilder strBuilder = new StringBuilder();
@@ -116,4 +131,4 @@ public class PigLatin {
 		}
 	return strBuilder;
 	}
-}//bracket for entire class
+}
